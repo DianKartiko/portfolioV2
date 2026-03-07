@@ -4,6 +4,7 @@ namespace App\View\Components\Header;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Route;
 use Illuminate\View\Component;
 
 class NavBar extends Component
@@ -13,13 +14,17 @@ class NavBar extends Component
      */
     public array $navigation = [];
 
+    public string $logoUrl;
+
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
+
+        $this->logoUrl = Route::has('home') ? route('home') : '/';
+
         $this->navigation = [
-            ['label' => 'Home', 'route' => 'home'],
             ['label' => 'Resume', 'route' => 'resume'],
             ['label' => 'Gallery', 'route' => 'gallery'],
             ['label' => 'Blogs', 'route' => 'blogs'],
