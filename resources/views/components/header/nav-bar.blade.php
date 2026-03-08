@@ -1,25 +1,27 @@
 <header x-data="{ open: false }" @click.outside="open = false" class="fixed w-full top-0 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-900 transition-colors duration-300 z-50">
     <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
         
-        <!-- Bagian Logo Baru (Slanted D) -->
+        <!-- Bagian Logo Profil & Nama Brand -->
         <div class="flex lg:flex-1">
-            <a href="{{ Route::has('home') ? route('home') : '/' }}" class="-m-1.5 p-1.5 flex items-center gap-3 transition-transform  active:scale-95 group">
+            <a href="{{ Route::has('home') ? route('home') : '/' }}" class="-m-1.5 p-1.5 flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 group">
                 <span class="sr-only">Denis Portfolio</span>
                 
-                <!-- Logo SVG -->
-                <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8 w-auto group-hover:drop-shadow-md transition-all duration-300">
-                    <g transform="skewX(-15) translate(14, 0)">
-                        <!-- Tiang Kiri Pertama -->
-                        <rect x="0" y="5" width="12" height="40" rx="6" class="fill-teal-600 dark:fill-teal-400 transition-colors duration-300" />
-                        <!-- Tiang Kiri Kedua (Utama D) -->
-                        <rect x="16" y="5" width="12" height="40" rx="6" class="fill-teal-600 dark:fill-teal-400 transition-colors duration-300" />
-                        <!-- Lengkungan Kanan Transparan -->
-                        <path d="M 22 5 h 16 a 20 20 0 0 1 20 20 a 20 20 0 0 1 -20 20 h -16 v -12 h 16 a 8 8 0 0 0 8 -8 a 8 8 0 0 0 -8 -8 h -16 v -12 z" class="fill-teal-600/30 dark:fill-teal-400/30 transition-colors duration-300" />
-                    </g>
-                </svg>
+                <!-- Image Profil dengan Animasi Ring (Instagram Style) -->
+                <div class="relative w-10 h-10 flex items-center justify-center rounded-full shadow-sm">
+                    
+                    <!-- Celah/Gap (Berubah warna mengikuti tema Terang/Gelap) -->
+                    <div class="absolute inset-[2px] rounded-full bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300"></div>
+                    
+                    <!-- Foto Profil (Lingkaran Sempurna) -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&q=80" 
+                        alt="Denis Profile" 
+                        class="relative z-10 w-[calc(100%-6px)] h-[calc(100%-6px)] rounded-full object-cover"
+                    >
+                </div>
                 
                 <!-- Nama Brand -->
-                <span class="font-bold text-zinc-900 dark:text-zinc-100 text-xl tracking-tight transition-colors duration-300">Dian</span>
+                <span class="font-semibold text-zinc-900 dark:text-zinc-100 text-lg tracking-tight transition-colors duration-300">Dian</span>
             </a>
         </div>
 
@@ -36,34 +38,39 @@
             </button>
         </div>
 
-        <!-- Menu Navigasi Desktop -->
-        <div class="hidden lg:flex lg:gap-x-8">
-            @foreach($navigation as $item)
-                @php
-                    $url = $item['url'] ?? (isset($item['route']) && Route::has($item['route']) ? route($item['route']) : '#');
-                    $isActive = $item['active'] ?? (isset($item['route']) ? request()->routeIs($item['route']) : false);
-                @endphp
-                <a href="{{ $url }}" 
-                   class="px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 {{ $isActive ? 'text-teal-600 dark:text-teal-400 bg-teal-600/10 dark:bg-teal-400/10' : 'text-zinc-900 dark:text-zinc-100 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 hover:text-teal-600 dark:hover:text-teal-400' }}">
-                    {{ $item['label'] }}
-                </a>
-            @endforeach
-        </div>
+        <!-- Menu Navigasi Desktop & Theme Switcher (Rata Kanan) -->
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-8">
+            <!-- Nav Items -->
+            <div class="flex gap-x-10">
+                @foreach($navigation as $item)
+                    @php
+                        $url = $item['url'] ?? (isset($item['route']) && Route::has($item['route']) ? route($item['route']) : '#');
+                        $isActive = $item['active'] ?? (isset($item['route']) ? request()->routeIs($item['route']) : false);
+                    @endphp
+                    <a href="{{ $url }}" 
+                       class="relative py-1 text-sm font-semibold transition-colors duration-150 
+                              after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:transition-transform after:duration-150 after:ease-out after:bg-teal-600 dark:after:bg-teal-400 
+                              {{ $isActive ? 'text-zinc-900 dark:text-zinc-100 after:scale-x-100' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 after:scale-x-0 hover:after:scale-x-100' }}">
+                        {{ $item['label'] }}
+                    </a>
+                @endforeach
+            </div>
 
-        <!-- Right Side: Simple Theme Switcher (Desktop) -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
+            <!-- Separator Vertikal (Opsional, agar terlihat lebih rapi antara menu dan tombol tema) -->
+            <div class="w-px h-6 bg-zinc-200 dark:bg-zinc-800"></div>
+
+            <!-- Theme Switcher -->
             <button 
                 @click="$store.theme.toggle()" 
                 class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-all duration-200 focus:outline-none hover:scale-110 active:scale-95"
                 title="Ganti Tema"
             >
-                <div class="relative size-5">
+                <div class="relative size-5 flex items-center justify-center">
                     <svg x-show="!$store.theme.isDark" class="absolute inset-0 size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
-                    <svg x-show="$store.theme.isDark" x-cloak class="absolute inset-0 size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-                    </svg>
+                    <!-- Menggunakan Ikon FontAwesome Baru untuk Dark Mode -->
+                    <i x-show="$store.theme.isDark" x-cloak class="fa-solid fa-moon-first-quarter text-[18px]"></i>
                 </div>
             </button>
         </div>
@@ -89,8 +96,12 @@
                 @endphp
                 <a href="{{ $url }}" 
                    @click="open = false"
-                   class="block rounded-lg px-3 py-2 text-base font-semibold transition-colors {{ $isActive ? 'text-teal-600 dark:text-teal-400 bg-teal-600/10 dark:bg-teal-400/10' : 'text-zinc-900 dark:text-zinc-100 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50' }}">
-                    {{ $item['label'] }}
+                   class="group block rounded-lg px-3 py-2 transition-colors duration-150 {{ $isActive ? 'bg-zinc-100/50 dark:bg-zinc-800/50' : 'hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50' }}">
+                    <span class="relative inline-block text-base font-semibold transition-colors duration-150 
+                                 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:origin-left after:transition-transform after:duration-150 after:ease-out after:bg-teal-600 dark:after:bg-teal-400 
+                                 {{ $isActive ? 'text-zinc-900 dark:text-zinc-100 after:scale-x-100' : 'text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 after:scale-x-0 group-hover:after:scale-x-100' }}">
+                        {{ $item['label'] }}
+                    </span>
                 </a>
             @endforeach
 
@@ -103,9 +114,9 @@
                 >
                     <span x-show="!$store.theme.isDark">Gelap</span>
                     <span x-show="$store.theme.isDark" x-cloak>Terang</span>
-                    <div class="size-4">
+                    <div class="size-4 flex items-center justify-center">
                         <svg x-show="!$store.theme.isDark" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-width="2"/></svg>
-                        <svg x-show="$store.theme.isDark" x-cloak fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" stroke-width="2"/></svg>
+                        <i x-show="$store.theme.isDark" x-cloak class="fa-solid fa-moon-first-quarter text-sm"></i>
                     </div>
                 </button>
             </div>
