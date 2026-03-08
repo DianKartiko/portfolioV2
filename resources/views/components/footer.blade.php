@@ -1,5 +1,5 @@
-<footer {{ $attributes->merge(['class' => 'mt-20 pb-12 border-t border-zinc-900/50 p-6']) }}>
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-zinc-600">
+<footer {{ $attributes->merge(['class' => 'mt-8 pb-12 border-t border-zinc-900/50 p-6 lg:px-8']) }}>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-zinc-600">
         {{-- Copyright dengan tahun dinamis --}}
         <div>
             © {{ date('Y') }} Built with 

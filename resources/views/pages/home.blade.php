@@ -1,24 +1,22 @@
 <x-layout.app title="Home - Portofolio">
-    {{-- Wrapper Utama untuk Centering --}}
     <div
-        class="flex flex-col items-center justify-center min-h-[80vh] text-center w-full max-w-3xl mx-auto px-4 py-10 animate-in fade-in slide-in-from-bottom-4 duration-1000"
+        class="flex flex-col w-full max-w-3xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24 animate-in fade-in slide-in-from-bottom-4 duration-1000"
     >
         {{-- Hero Section --}}
-        <section class="mb-12 flex flex-col items-center">
-            {{-- Ukuran font maksimal sekarang adalah text-3xl --}}
+        <section class="mb-8 flex flex-col items-start">
             <h1
-                class="text-2xl md:text-3xl font-bold tracking-tight text-zinc-100 mb-6 leading-tight"
+                class="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4 leading-tight transition-colors"
             >
-                Hey, I'm <span class="text-teal-400">Your Name</span>!
+                Hey, I'm
+                <span class="text-teal-600 dark:text-teal-400">Your Name</span>!
             </h1>
 
-            {{-- Ukuran teks paragraf disesuaikan menjadi text-base dan text-lg --}}
             <div
-                class="space-y-4 text-base md:text-lg leading-relaxed text-zinc-400 font-light max-w-2xl"
+                class="space-y-3 text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-light max-w-2xl transition-colors"
             >
                 <p>
                     A freelance
-                    <span class="text-zinc-100 font-medium"
+                    <span class="text-zinc-900 dark:text-zinc-100 font-medium"
                         >full-stack engineer</span
                     >
                     based in Jakarta, Indonesia.
@@ -27,13 +25,13 @@
                     I specialize in developing applications using
                     <a
                         href="#"
-                        class="text-zinc-100 underline decoration-zinc-800 hover:decoration-teal-400 transition-colors"
+                        class="text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-800 hover:decoration-teal-600 dark:hover:decoration-teal-400 transition-colors"
                         >Laravel</a
                     >
                     and
                     <a
                         href="#"
-                        class="text-zinc-100 underline decoration-zinc-800 hover:decoration-teal-400 transition-colors"
+                        class="text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-800 hover:decoration-teal-600 dark:hover:decoration-teal-400 transition-colors"
                         >React ecosystem</a
                     >.
                 </p>
@@ -41,21 +39,20 @@
                     Currently, I'm building modern web experiences at
                     <a
                         href="#"
-                        class="text-zinc-100 underline decoration-zinc-800 hover:decoration-teal-400 transition-colors"
+                        class="text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-800 hover:decoration-teal-600 dark:hover:decoration-teal-400 transition-colors"
                         >YourCompany</a
                     >.
                 </p>
             </div>
 
-            {{-- Wavy Divider - Diperkecil sedikit agar proporsional dengan font --}}
-            <div class="mt-10 mb-2 flex justify-center">
+            {{-- Wavy Divider --}}
+            <div class="mt-8 mb-2 flex justify-start">
                 <svg
                     width="90"
                     height="16"
                     viewBox="0 0 120 20"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="text-teal-400"
+                    class="text-teal-600 dark:text-teal-400 transition-colors"
                 >
                     <path
                         d="M0 10C10 10 10 2 20 2C30 2 30 10 40 10C50 10 50 2 60 2C70 2 70 10 80 10C90 10 90 2 100 2C110 2 110 10 120 10"
@@ -68,17 +65,16 @@
         </section>
 
         {{-- Social Section --}}
-        <section class="mb-12 flex flex-col items-center w-full">
+        <section class="mb-8 flex flex-col items-start w-full">
             <h2
-                class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-6"
+                class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-500 mb-6 transition-colors"
             >
                 Find me on
             </h2>
-            {{-- Menggunakan justify-center agar ikon sosial berbaris di tengah --}}
-            <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+            <div class="flex flex-wrap justify-start gap-6 md:gap-8">
                 <a
                     href="#"
-                    class="group flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                    class="group flex items-center gap-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
                     <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -89,7 +85,7 @@
                 </a>
                 <a
                     href="#"
-                    class="group flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                    class="group flex items-center gap-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
                     <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -100,7 +96,7 @@
                 </a>
                 <a
                     href="#"
-                    class="group flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                    class="group flex items-center gap-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
                     <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -113,18 +109,20 @@
         </section>
 
         {{-- Contact Section --}}
-        <section class="flex flex-col items-center">
+        <section class="flex flex-col items-start">
             <h2
-                class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-3"
+                class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-500 mb-3 transition-colors"
             >
                 Contact
             </h2>
-            <p class="text-zinc-400 text-sm md:text-base mb-2 font-light">
+            <p
+                class="text-zinc-600 dark:text-zinc-400 text-sm md:text-base mb-2 font-light transition-colors"
+            >
                 You can reach me out anytime at
             </p>
             <a
                 href="mailto:hello@yourname.dev"
-                class="text-lg md:text-xl font-medium text-zinc-100 border-b border-zinc-800 hover:border-teal-400 transition-all duration-300 pb-1"
+                class="text-base font-medium text-zinc-900 dark:text-zinc-100 border-b border-zinc-300 dark:border-zinc-800 hover:border-teal-600 dark:hover:border-teal-400 transition-all duration-300 pb-1"
             >
                 hello@yourname.dev
             </a>

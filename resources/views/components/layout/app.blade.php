@@ -14,12 +14,14 @@
             }
         </style>
     </head>
+    {{-- PERBAIKAN: Tambah min-h-screen agar footer selalu di bawah --}}
     <body
-        class="h-full bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300 flex flex-col"
+        class="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300 flex flex-col font-sans"
     >
         <x-header.nav-bar />
 
-        <main class="flex-grow">
+        {{-- PERBAIKAN: flex-grow akan mendorong footer ke ujung bawah layar --}}
+        <main class="flex-grow flex flex-col">
             {{ $slot }}
         </main>
 
