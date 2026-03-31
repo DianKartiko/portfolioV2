@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 @import 'tailwindcss';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Preline UI */
+@import "../../node_modules/preline/variants.css";
+@source "../../node_modules/preline/dist/*.js";
+
+/* Plugins */
+/* @plugin "@tailwindcss/forms"; */
+
+/* Preline Themes */
+@import "./themes/theme.css";
+
+/* Darkmode for tailwindcss v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Define style for Font */
 @theme {
     --font-sans: "Instrument Sans", sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
