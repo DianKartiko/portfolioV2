@@ -11,7 +11,25 @@
 </head>
 
 <body class="bg-white dark:bg-neutral-900 ">
-    
+    <!-- SideBar -->
+    <x-side-bar></x-side-bar>
+
+    <!-- Main Konten -->
+    <main class="lg:ms-64 transition-all duration-300">
+        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+            {{ $slot }}
+        </div>
+    </main>
+
+
+    <!-- JS -->
+    <script>
+        window.addEventListener('load', () => {
+            if (window.HSStaticMethods) {
+                window.HSStaticMethods.autoInit();
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <!-- Button Toggle -->
 <div class="lg:hidden py-16 text-center">
     <button type="button" class="py-2 px-3 inline-flex justify-start items-start text-sm" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-sidebar-content-push-to-mini-sidebar" aria-label="Toggle navigation" data-hs-overlay="#hs-sidebar-content-push-to-mini-sidebar">
-        {{ svg('radix-hamburger-menu') }}
+        {{ svg('bx-sidebar') }}
     </button>
 </div>
 

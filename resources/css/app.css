@@ -9,7 +9,7 @@
 /* @plugin "@tailwindcss/forms"; */
 
 /* Preline Themes */
-@import "./themes/theme.css";
+/* @import "./themes/theme.css"; */
 
 /* Darkmode for tailwindcss v4 */
 @custom-variant dark (&:where(.dark, .dark *));
