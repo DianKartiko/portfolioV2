@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 @import 'tailwindcss';
+/* @plugin "preline/plugin"; */
 
 /* Preline UI */
 @import "../../node_modules/preline/variants.css";
@@ -7,6 +8,7 @@
 
 /* Plugins */
 /* @plugin "@tailwindcss/forms"; */
+
 
 /* Preline Themes */
 /* @import "./themes/theme.css"; */
@@ -18,4 +20,22 @@
 @theme {
     --font-sans: "Instrument Sans", sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+        /* Background Utama */
+  --color-sidebar: white;
+  --color-sidebar-dark: #171717; /* neutral-900 */
+
+  /* Garis Pemisah */
+  --color-sidebar-line: #e5e5e5; /* neutral-200 */
+  --color-sidebar-line-dark: #262626; /* neutral-800 */
+
+  /* Navigasi */
+  --color-sidebar-nav-active: #f5f5f5; /* neutral-100 */
+  --color-sidebar-nav-active-dark: #262626; /* neutral-800 */
+  
+  --color-sidebar-nav-hover: #fafafa; /* neutral-50 */
+  --color-sidebar-nav-hover-dark: #1f1f1f;
+  
+  --color-sidebar-nav-foreground: #404040; /* neutral-700 */
+  --color-sidebar-nav-foreground-dark: #d4d4d4; /* neutral-300 */
 }

@@ -15,7 +15,7 @@
     <x-side-bar></x-side-bar>
 
     <!-- Main Konten -->
-    <main class="lg:ms-64 transition-all duration-300">
+    <main class="lg:ps-64 transition-all duration-300 [[.hs-sidebar-mini-window]_&]:lg:ps-20">
         <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
             {{ $slot }}
         </div>
@@ -24,7 +24,15 @@
 
     <!-- JS -->
     <script>
+        // Pantau perubahan DOM agar Preline melakukan re-inisialisasi otomatis
         window.addEventListener('load', () => {
+            if (window.HSStaticMethods) {
+                window.HSStaticMethods.autoInit();
+            }
+        });
+
+        // Opsional: Untuk menangani navigasi Livewire/SPA jika nantinya Anda pakai
+        document.addEventListener('livewire:navigated', () => {
             if (window.HSStaticMethods) {
                 window.HSStaticMethods.autoInit();
             }
