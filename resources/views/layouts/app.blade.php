@@ -24,19 +24,17 @@
 
     <!-- JS -->
     <script>
-        // Pantau perubahan DOM agar Preline melakukan re-inisialisasi otomatis
-        window.addEventListener('load', () => {
+        // Menangani inisialisasi awal dan perubahan navigasi
+        function initPreline() {
             if (window.HSStaticMethods) {
                 window.HSStaticMethods.autoInit();
             }
-        });
+        }
 
-        // Opsional: Untuk menangani navigasi Livewire/SPA jika nantinya Anda pakai
-        document.addEventListener('livewire:navigated', () => {
-            if (window.HSStaticMethods) {
-                window.HSStaticMethods.autoInit();
-            }
-        });
+        document.addEventListener('DOMContentLoaded', initPreline);
+
+        // Jika nanti Anda menggunakan Livewire atau navigasi SPA
+        document.addEventListener('livewire:navigated', initPreline);
     </script>
 </body>
 
